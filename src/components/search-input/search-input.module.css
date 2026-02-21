@@ -1,0 +1,251 @@
+.searchContainer {
+  position: relative;
+}
+
+.searchWrapper {
+  position: relative;
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.searchForm:focus-within {
+  border-color: #e50914;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2), 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 12px 16px;
+  width: 280px;
+  font-size: 16px;
+  outline: none;
+  flex: 1;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.searchSubmitButton {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 12px;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchSubmitButton:hover {
+  color: #e50914;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 12px;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  color: #ffffff;
+}
+
+.searchButton {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchButton:hover {
+  color: #e50914;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.searchIcon, .closeIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Suggestions Dropdown */
+.suggestionsDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  backdrop-filter: blur(20px);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.loadingItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.loadingSpinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-left: 2px solid #e50914;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.suggestionItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.suggestionItem:hover {
+  background: rgba(229, 9, 20, 0.1);
+  border-left: 4px solid #e50914;
+  padding-left: 12px;
+}
+
+.suggestionImage {
+  width: 40px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.suggestionContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.suggestionTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.suggestionMeta {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.viewAllItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  text-decoration: none;
+  color: #e50914;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(229, 9, 20, 0.05);
+}
+
+.viewAllItem:hover {
+  background: rgba(229, 9, 20, 0.1);
+  color: #ff6b6b;
+}
+
+/* Custom scrollbar for suggestions */
+.suggestionsDropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.suggestionsDropdown::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.suggestionsDropdown::-webkit-scrollbar-thumb {
+  background: rgba(229, 9, 20, 0.6);
+  border-radius: 3px;
+}
+
+.suggestionsDropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(229, 9, 20, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .searchInput {
+    width: 200px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+  .closeButton, .searchSubmitButton {
+    padding: 10px;
+  }
+  
+  .suggestionImage {
+    width: 32px;
+    height: 48px;
+  }
+  
+  .suggestionTitle {
+    font-size: 0.8rem;
+  }
+  
+  .suggestionMeta {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchInput {
+    width: 160px;
+  }
+  
+  .suggestionsDropdown {
+    max-height: 300px;
+  }
+}

@@ -1,0 +1,221 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  padding: 64px 0;
+  min-height: 65vh;
+  justify-content: flex-end;
+  padding-bottom: 48px;
+  position: relative;
+}
+
+.backgroundContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95vh;
+
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 8s ease-in-out;
+}
+
+.backgroundImage:hover {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0.6) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.content {
+  padding-top: 96px;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 600px;
+  z-index: 10;
+  position: relative;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(45deg, #ffffff, #e50914);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.description {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 500px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.playButton {
+  background: linear-gradient(45deg, #ffffff, #f0f0f0);
+  color: #000000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.playButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.playButton:hover::before {
+  left: 100%;
+}
+
+.playButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+}
+
+.infoButton {
+  background: rgba(109, 109, 110, 0.7);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.infoButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.infoButton:hover::before {
+  left: 100%;
+}
+
+.infoButton:hover {
+  background: rgba(109, 109, 110, 0.9);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.playIcon, .infoIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .content {
+    padding-left: 32px;
+    padding-top: 128px;
+  }
+  
+  .title {
+    font-size: 3rem;
+    margin-bottom: 24px;
+  }
+  
+  .description {
+    font-size: 1rem;
+    max-width: 600px;
+  }
+  
+  .actions {
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+    padding-left: 64px;
+    padding-top: 192px;
+  }
+  
+  .title {
+    font-size: 4rem;
+  }
+  
+  .description {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .playButton, .infoButton {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .description {
+    font-size: 0.8rem;
+  }
+}

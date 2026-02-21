@@ -1,0 +1,217 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar.transparent {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 32px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav {
+  display: none;
+  margin-left: 40px;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
+
+.navLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, #e50914, #ff6b6b);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover {
+  color: #e50914;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e50914;
+  transform: scale(1.1);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.profile:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.profileImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: url('/user-icon.png') no-repeat center center;
+  background-size: cover;
+}
+
+
+.profileArrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.profile:hover .profileArrow {
+  transform: rotate(180deg);
+}
+
+/* Mobile Navigation */
+.mobileMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileNavList {
+  list-style: none;
+  padding: 20px;
+}
+
+.mobileNavItem {
+  margin-bottom: 16px;
+}
+
+.mobileNavLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: color 0.3s ease;
+}
+
+.mobileNavLink:hover {
+  color: #e50914;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburgerLine {
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .nav {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 12px 16px;
+  }
+  
+  .logo {
+    height: 28px;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .mobileMenu.open {
+    display: block;
+  }
+  
+  .actions {
+    gap: 12px;
+  }
+}

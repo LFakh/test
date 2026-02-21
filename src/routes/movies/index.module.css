@@ -1,0 +1,73 @@
+.container {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.main {
+  position: relative;
+  padding-top: 96px;
+  padding-bottom: 96px;
+  padding-left: 16px;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 0 16px;
+  margin-bottom: 24px;
+  background: linear-gradient(45deg, #ffffff, #e50914);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.sectionsContainer {
+  margin-top: 0;
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.loadingContent {
+  text-align: center;
+}
+
+.loadingLogo {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .pageTitle {
+    padding: 0;
+    font-size: 2.5rem;
+  }
+  
+  .sectionsContainer {
+    margin-top: 96px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding-left: 64px;
+  }
+}

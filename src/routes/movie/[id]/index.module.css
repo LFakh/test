@@ -1,0 +1,277 @@
+.container {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.main {
+  position: relative;
+  padding-top: 64px;
+}
+
+.heroSection {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 8s ease-in-out;
+}
+
+.heroImage:hover {
+  transform: scale(1.05);
+}
+
+.heroOverlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.content {
+  padding: 16px;
+  padding-bottom: 96px;
+  margin-top: -128px;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  background: linear-gradient(45deg, #ffffff, #e50914);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.metadata {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.matchScore {
+  color: #46d369;
+  font-weight: 600;
+}
+
+.year, .runtime {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hdBadge {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.playButton {
+  background: linear-gradient(45deg, #ffffff, #f0f0f0);
+  color: #000000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.playButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.playButton:hover::before {
+  left: 100%;
+}
+
+.playButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+}
+
+.listButton, .likeButton {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.listButton::before, .likeButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.listButton:hover::before, .likeButton:hover::before {
+  left: 100%;
+}
+
+.listButton:hover, .likeButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.playIcon, .listIcon, .likeIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.description {
+  max-width: 768px;
+  margin-bottom: 24px;
+}
+
+.overview {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.details {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+}
+
+.detailItem {
+  margin-bottom: 8px;
+}
+
+.detailLabel {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.loadingContent {
+  text-align: center;
+}
+
+.loadingLogo {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.notFoundContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.notFoundMessage {
+  color: #ffffff;
+  font-size: 1.25rem;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .content {
+    padding: 64px;
+  }
+  
+  .title {
+    font-size: 3rem;
+  }
+  
+  .overview {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .playButton, .listButton, .likeButton {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .overview {
+    font-size: 1rem;
+  }
+}
